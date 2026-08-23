@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Caso de estudio sobre una estación macOS declarativa con recuperación segura del shell.">
+  <title>Estación de trabajo declarativa — Caso de estudio</title>
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <header class="site-header"><div class="container header-inner"><a class="brand" href="../index.html">SR / Sistemas</a><nav class="site-nav" aria-label="Navegación principal"><ul><li><a href="../index.html">Inicio</a></li><li><a href="../perfil.html">Perfil</a></li><li><a href="../index.html#casos">Casos</a></li><li><a href="../index.html#contacto">Contacto</a></li></ul></nav></div></header>
+  <main id="contenido">
+    <header class="case-hero"><div class="container"><p class="eyebrow">Caso · Estación de trabajo</p><div class="status-row"><span class="chip verified">Verificado</span></div><h1>Entorno declarativo con una ruta de recuperación nativa</h1><p class="lede">Mantener una experiencia moderna de terminal sin convertir el gestor de paquetes en una dependencia crítica del inicio de sesión.</p><dl class="case-meta"><div><dt>Responsabilidad</dt><dd>Diseño y recuperación del entorno</dd></div><div><dt>Tecnologías</dt><dd>Nix, Home Manager, zsh y Nushell</dd></div><div><dt>Resultado</dt><dd>13/13 herramientas verificadas</dd></div></dl></div></header>
+    <div class="container case-layout">
+      <aside class="case-toc" aria-label="Contenido del caso"><p class="data-label">En este caso</p><ol><li><a href="#problema">Problema</a></li><li><a href="#responsabilidad">Responsabilidad</a></li><li><a href="#restricciones">Restricciones</a></li><li><a href="#arquitectura">Arquitectura</a></li><li><a href="#decisiones">Decisiones</a></li><li><a href="#implementacion">Implementación</a></li><li><a href="#verificacion">Verificación</a></li><li><a href="#aprendizajes">Aprendizajes</a></li><li><a href="#estado">Estado actual</a></li><li><a href="#siguiente">Siguiente paso</a></li></ol></aside>
+      <article class="case-content">
+        <section id="problema"><h2>Problema</h2><p>La cuenta del sistema dependía de un shell gestionado por Nix. Cuando el volumen correspondiente no estuvo disponible durante una recuperación, el login quedó acoplado a una capa que debía ser opcional.</p></section>
+        <section id="responsabilidad"><h2>Responsabilidad</h2><p>Diagnostiqué la frontera entre cuenta del sistema, terminal y entorno declarativo; recuperé un login funcional y preparé una protección repetible sin aplicar cambios amplios sobre un árbol con trabajo no relacionado.</p></section>
+        <section id="restricciones"><h2>Restricciones</h2><ul><li>No reinstalar ni eliminar Nix para resolver un fallo de login.</li><li>No activar una generación completa mientras existiera trabajo no revisado.</li><li>Conservar Nushell como experiencia interactiva preferida.</li><li>Mantener una ruta de entrada basada únicamente en componentes nativos.</li></ul></section>
+        <section id="arquitectura"><h2>Arquitectura y enfoque</h2><p>El shell de inicio de sesión permanece en <code>/bin/zsh</code>, disponible en el volumen nativo. La sesión interactiva inicia Nushell solo si su ejecutable gestionado existe y es ejecutable. Si esa condición falla, zsh continúa como mecanismo operativo alternativo.</p></section>
+        <section id="decisiones"><h2>Decisiones y compromisos</h2><ul class="decision-list"><li><strong>Inicio de sesión nativo.</strong> Sacrifica la entrada directa a Nushell para garantizar recuperación independiente de Nix.</li><li><strong>Arranque condicional.</strong> Conserva la experiencia diaria sin ocultar el mecanismo alternativo.</li><li><strong>Terminal sin ruta rígida.</strong> Evita que la configuración de la aplicación vuelva a saltarse la frontera segura.</li></ul></section>
+        <section id="implementacion"><h2>Implementación</h2><p>Se corrigió el shell de cuenta, se retiró la ejecución directa desde la terminal y se preparó una comprobación declarativa que valida los marcadores de seguridad. Una variable de entorno permite abrir zsh explícitamente para diagnóstico.</p></section>
+        <section id="verificacion"><h2>Verificación</h2><div class="evidence"><div><strong>Inicio de sesión</strong>El proceso entra primero por zsh nativo.</div><div><strong>Recuperación</strong>zsh permanece disponible sin autoarranque.</div><div><strong>Experiencia</strong>Una terminal nueva entra a Nushell cuando está disponible.</div><div><strong>Herramientas</strong>13 de 13 herramientas respondieron correctamente.</div></div></section>
+        <section id="aprendizajes"><h2>Incidentes y aprendizajes</h2><p>La declaratividad no debe eliminar la capacidad de recuperación del sistema base. Un componente administrado puede ser confiable en operación normal y, aun así, ser una mala dependencia para el login.</p></section>
+        <section id="estado"><h2>Estado actual</h2><div class="callout"><div class="status-row"><span class="chip verified">Verificado</span></div><p>El flujo login nativo → shell interactivo condicional fue comprobado en una sesión nueva. La protección declarativa está preparada; su activación completa permanece separada del incidente.</p></div></section>
+        <section id="siguiente"><h2>Siguiente paso</h2><p>Revisar el conjunto completo de cambios declarativos y activar una nueva generación solo después de validar que no incorpora modificaciones no relacionadas.</p></section>
+        <a class="next-case" href="data-lake.html"><span>Siguiente caso<strong>Personal Data Lake</strong></span><span aria-hidden="true">→</span></a>
+      </article>
+    </div>
+  </main>
+  <footer class="site-footer"><div class="container footer-inner"><p>La recuperación prioriza componentes nativos sin renunciar a una experiencia declarativa.</p><div class="footer-links"><a href="../index.html">Inicio</a><a href="https://github.com/sebasnano">GitHub</a><a href="https://www.linkedin.com/in/sebasti%C3%A1n-rodr%C3%ADguez-parra/" aria-label="Perfil de Sebastián Rodríguez en LinkedIn">LinkedIn</a></div></div></footer>
+</body>
+</html>

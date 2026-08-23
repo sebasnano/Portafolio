@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Caso de estudio sobre la construcción incremental de un Personal Data Lake.">
+  <title>Personal Data Lake — Caso de estudio</title>
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <header class="site-header"><div class="container header-inner"><a class="brand" href="../index.html">SR / Sistemas</a><nav class="site-nav" aria-label="Navegación principal"><ul><li><a href="../index.html">Inicio</a></li><li><a href="../perfil.html">Perfil</a></li><li><a href="../index.html#casos">Casos</a></li><li><a href="../index.html#contacto">Contacto</a></li></ul></nav></div></header>
+  <main id="contenido">
+    <header class="case-hero"><div class="container"><p class="eyebrow">Caso · Ingeniería de datos</p><div class="status-row"><span class="chip progress">En progreso</span><span class="chip next">Próximo: adaptador</span></div><h1>Personal Data Lake construido por cortes verticales verificables</h1><p class="lede">Una base privada para ingesta, catálogo y trazabilidad que evita crear componentes vacíos antes de que exista comportamiento real.</p><dl class="case-meta"><div><dt>Responsabilidad</dt><dd>Arquitectura y base inicial</dd></div><div><dt>Conjunto</dt><dd>Python, API y servicios de datos</dd></div><div><dt>Calidad</dt><dd>3 pruebas y Ruff limpio</dd></div></dl></div></header>
+    <div class="container case-layout">
+      <aside class="case-toc" aria-label="Contenido del caso"><p class="data-label">En este caso</p><ol><li><a href="#problema">Problema</a></li><li><a href="#responsabilidad">Responsabilidad</a></li><li><a href="#restricciones">Restricciones</a></li><li><a href="#arquitectura">Arquitectura</a></li><li><a href="#decisiones">Decisiones</a></li><li><a href="#implementacion">Implementación</a></li><li><a href="#verificacion">Verificación</a></li><li><a href="#aprendizajes">Aprendizajes</a></li><li><a href="#estado">Estado actual</a></li><li><a href="#siguiente">Siguiente paso</a></li></ol></aside>
+      <article class="case-content">
+        <section id="problema"><h2>Problema</h2><p>Los datos personales provenientes de múltiples servicios necesitan conservación, deduplicación, catálogo y trazabilidad. Crear de inmediato toda la arquitectura objetivo habría producido módulos sin comportamiento y señales de avance engañosas.</p></section>
+        <section id="responsabilidad"><h2>Responsabilidad</h2><p>Definí el repositorio canónico privado, el paquete inicial, el stack de desarrollo, los límites de almacenamiento y una secuencia de hitos donde cada incremento termina con pruebas.</p></section>
+        <section id="restricciones"><h2>Restricciones</h2><ul><li>Sin datos personales ni secretos en Git.</li><li>Almacenamiento de objetos de desarrollo no autoritativo.</li><li>Hashes criptográficos para integridad.</li><li>Servicios internos sin exposición innecesaria.</li><li>Sin workers, conectores o catálogos ficticios antes de implementarlos.</li></ul></section>
+        <section id="arquitectura"><h2>Arquitectura y enfoque</h2><p>El núcleo actual es una aplicación Python con endpoints de salud, una demostración del flujo columnar y un stack de cuatro servicios. La arquitectura futura separa conectores, ingesta, almacenamiento, catálogo, reconciliación, cuarentena y retención.</p></section>
+        <section id="decisiones"><h2>Decisiones y compromisos</h2><ul class="decision-list"><li><strong>Repositorio privado canónico.</strong> Evita fragmentar el proyecto; un repositorio público anterior permanece no canónico.</li><li><strong>Desarrollo por cortes.</strong> Reduce arquitectura especulativa, aunque mantiene visible una lista amplia de capacidades pendientes.</li><li><strong>Implementación intercambiable.</strong> La dependencia local permite desarrollar sin convertirse en fuente de producción.</li><li><strong>Preparación honesta.</strong> El punto de salud existe, pero se documenta que aún no comprueba dependencias.</li></ul></section>
+        <section id="implementacion"><h2>Implementación</h2><p>La base inicial incluye fábrica de aplicación, puntos de vitalidad y preparación, empaquetado moderno, pruebas y análisis estático. Una demostración escribe formato columnar, lo consulta y vuelve a leerlo. El conjunto añade API, base de datos, caché y almacenamiento local de desarrollo.</p></section>
+        <section id="verificacion"><h2>Verificación</h2><div class="evidence"><div><strong>Pruebas</strong>3 casos automatizados en verde.</div><div><strong>Análisis</strong>Revisión estática sin hallazgos.</div><div><strong>Conjunto</strong>Cuatro servicios alcanzaron salud verificada.</div><div><strong>Red</strong>Puertos de desarrollo limitados a localhost.</div></div></section>
+        <section id="aprendizajes"><h2>Incidentes y aprendizajes</h2><p>La existencia de un punto de preparación no basta: mientras no consulte dependencias, solo demuestra que la aplicación responde. Nombrar esa limitación evita que la interfaz prometa más que la implementación.</p></section>
+        <section id="estado"><h2>Estado actual</h2><div class="callout"><div class="status-row"><span class="chip progress">En progreso</span></div><p>La base inicial, la API, las pruebas y el conjunto de servicios están implementados. El conjunto no estaba activo en la última lectura. El adaptador de almacenamiento, los conectores, el catálogo y el flujo de ingesta aún no se han implementado.</p></div></section>
+        <section id="siguiente"><h2>Siguiente paso</h2><p>Diseñar e implementar el adaptador de almacenamiento genérico con integridad SHA-256, manteniendo las particularidades del proveedor fuera del dominio.</p></section>
+        <a class="next-case" href="proteccion-datos.html"><span>Siguiente caso<strong>Protección de datos</strong></span><span aria-hidden="true">→</span></a>
+      </article>
+    </div>
+  </main>
+  <footer class="site-footer"><div class="container footer-inner"><p>El código y los datos privados permanecen fuera de este portafolio público.</p><div class="footer-links"><a href="../index.html">Inicio</a><a href="https://github.com/sebasnano">GitHub</a><a href="https://www.linkedin.com/in/sebasti%C3%A1n-rodr%C3%ADguez-parra/" aria-label="Perfil de Sebastián Rodríguez en LinkedIn">LinkedIn</a></div></div></footer>
+</body>
+</html>

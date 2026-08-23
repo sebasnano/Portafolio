@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Caso de estudio sobre flujo de ingeniería asistida por IA y memoria persistente.">
+  <title>IA y memoria persistente — Caso de estudio</title>
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <header class="site-header"><div class="container header-inner"><a class="brand" href="../index.html">SR / Sistemas</a><nav class="site-nav" aria-label="Navegación principal"><ul><li><a href="../index.html">Inicio</a></li><li><a href="../perfil.html">Perfil</a></li><li><a href="../index.html#casos">Casos</a></li><li><a href="../index.html#contacto">Contacto</a></li></ul></nav></div></header>
+  <main id="contenido">
+    <header class="case-hero"><div class="container"><p class="eyebrow">Caso · Flujo de ingeniería</p><div class="status-row"><span class="chip verified">Persistencia verificada</span><span class="chip progress">Flujo evolutivo</span></div><h1>Agentes con memoria, límites y evidencia de trabajo</h1><p class="lede">Integro IA en el ciclo de ingeniería como herramienta dirigida: lee contexto, ejecuta trabajo acotado, verifica resultados y conserva decisiones útiles entre sesiones.</p><dl class="case-meta"><div><dt>Responsabilidad</dt><dd>Diseño del flujo y gobernanza</dd></div><div><dt>Capacidad</dt><dd>Memoria persistente autohospedada</dd></div><div><dt>Protección</dt><dd>Copia de solo adición verificada</dd></div></dl></div></header>
+    <div class="container case-layout">
+      <aside class="case-toc" aria-label="Contenido del caso"><p class="data-label">En este caso</p><ol><li><a href="#problema">Problema</a></li><li><a href="#responsabilidad">Responsabilidad</a></li><li><a href="#restricciones">Restricciones</a></li><li><a href="#arquitectura">Arquitectura</a></li><li><a href="#decisiones">Decisiones</a></li><li><a href="#implementacion">Implementación</a></li><li><a href="#verificacion">Verificación</a></li><li><a href="#aprendizajes">Aprendizajes</a></li><li><a href="#estado">Estado actual</a></li><li><a href="#siguiente">Siguiente paso</a></li></ol></aside>
+      <article class="case-content">
+        <section id="problema"><h2>Problema</h2><p>Los asistentes pierden contexto entre sesiones y pueden producir cambios rápidos sin comprender decisiones previas. Sin límites, la velocidad aparente aumenta mientras la coherencia y la trazabilidad disminuyen.</p></section>
+        <section id="responsabilidad"><h2>Responsabilidad</h2><p>Diseñé reglas de lectura, especialización, verificación, documentación y memoria. La persona conserva autoridad sobre alcance y decisiones; el agente ejecuta dentro de fronteras explícitas.</p></section>
+        <section id="restricciones"><h2>Restricciones</h2><ul><li>La memoria no sustituye la evidencia del repositorio.</li><li>Los secretos no se almacenan en documentación ni observaciones.</li><li>Las decisiones conflictivas requieren juicio explícito.</li><li>Los agentes no deben declarar éxito sin ejecutar verificaciones.</li><li>La infraestructura de memoria permanece en acceso privado.</li></ul></section>
+        <section id="arquitectura"><h2>Arquitectura y enfoque</h2><p>El flujo conecta instrucciones versionadas, documentación viva, herramientas especializadas y memoria persistente autohospedada. En la comprobación de aceptación, una sesión posterior recuperó observaciones de la sesión previa y las utilizó como contexto; el código y las pruebas siguen siendo la fuente de verdad para el comportamiento actual.</p></section>
+        <section id="decisiones"><h2>Decisiones y compromisos</h2><ul class="decision-list"><li><strong>Memoria semántica.</strong> Reduce repetición, pero exige revisar hechos que pueden volverse obsoletos.</li><li><strong>Capacidades acotadas.</strong> Mejoran consistencia sin reemplazar la lectura del contexto real.</li><li><strong>Verificación obligatoria.</strong> Consume tiempo adicional y evita aceptar narrativas no demostradas.</li><li><strong>Autohospedado privado.</strong> Aumenta control de datos a cambio de responsabilidad operativa.</li></ul></section>
+        <section id="implementacion"><h2>Implementación</h2><p>La configuración incorpora instrucciones por proyecto, capacidades especializadas, acceso a documentación vigente y un servicio de memoria. Las decisiones, incidentes y patrones se registran de forma estructurada. La copia valida la base, escribe fuera del sitio sin sobrescribir conjuntos anteriores y comprueba el resultado.</p></section>
+        <section id="verificacion"><h2>Verificación</h2><div class="evidence"><div><strong>Persistencia</strong>Observaciones de una sesión previa se recuperaron después y se usaron como contexto.</div><div><strong>Privacidad</strong>El servicio se mantiene fuera de exposición pública.</div><div><strong>Copia de seguridad</strong>Flujo de solo adición con controles de integridad.</div><div><strong>Operación</strong>Procedimiento manual disponible para validación.</div></div></section>
+        <section id="aprendizajes"><h2>Incidentes y aprendizajes</h2><p>Una credencial fue rotada y se restableció mínimo privilegio. El aprendizaje se convirtió en política: separar roles, no imprimir valores sensibles y verificar nuevamente el flujo de copia completo después de una rotación.</p></section>
+        <section id="estado"><h2>Estado actual</h2><div class="callout"><div class="status-row"><span class="chip verified">Memoria verificada</span><span class="chip progress">Gobernanza en evolución</span></div><p>La persistencia y la copia de seguridad están comprobadas. El flujo completo de agentes continúa evolucionando; la memoria aporta continuidad, pero no concede autonomía irrestricta.</p></div></section>
+        <section id="siguiente"><h2>Siguiente paso</h2><p>Ampliar las pruebas de aceptación del flujo completo y revisar periódicamente memorias envejecidas contra la documentación y el estado del repositorio.</p></section>
+        <a class="next-case" href="workstation-mac.html"><span>Siguiente caso<strong>Estación de trabajo declarativa</strong></span><span aria-hidden="true">→</span></a>
+      </article>
+    </div>
+  </main>
+  <footer class="site-footer"><div class="container footer-inner"><p>Los detalles internos de memoria, credenciales y copias de seguridad no se publican.</p><div class="footer-links"><a href="../index.html">Inicio</a><a href="https://github.com/sebasnano">GitHub</a><a href="https://www.linkedin.com/in/sebasti%C3%A1n-rodr%C3%ADguez-parra/" aria-label="Perfil de Sebastián Rodríguez en LinkedIn">LinkedIn</a></div></div></footer>
+</body>
+</html>

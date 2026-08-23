@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Caso de estudio sobre homelab privado y ejecución remota de contenedores.">
+  <title>Homelab privado y Docker remoto — Caso de estudio</title>
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <header class="site-header"><div class="container header-inner"><a class="brand" href="../index.html">SR / Sistemas</a><nav class="site-nav" aria-label="Navegación principal"><ul><li><a href="../index.html">Inicio</a></li><li><a href="../perfil.html">Perfil</a></li><li><a href="../index.html#casos">Casos</a></li><li><a href="../index.html#contacto">Contacto</a></li></ul></nav></div></header>
+  <main id="contenido">
+    <header class="case-hero"><div class="container"><p class="eyebrow">Caso · Plataforma privada</p><div class="status-row"><span class="chip verified">Verificado</span></div><h1>Laboratorio privado con control remoto de Docker</h1><p class="lede">Separé el trabajo interactivo de la ejecución persistente, manteniendo el nodo doméstico fuera de Internet y reduciendo la duplicación de entornos.</p><dl class="case-meta"><div><dt>Responsabilidad</dt><dd>Topología, acceso y ejecución</dd></div><div><dt>Modelo</dt><dd>Estación → nodo privado</dd></div><div><dt>Exposición</dt><dd>Privada por defecto</dd></div></dl></div></header>
+    <div class="container case-layout">
+      <aside class="case-toc" aria-label="Contenido del caso"><p class="data-label">En este caso</p><ol><li><a href="#problema">Problema</a></li><li><a href="#responsabilidad">Responsabilidad</a></li><li><a href="#restricciones">Restricciones</a></li><li><a href="#arquitectura">Arquitectura</a></li><li><a href="#decisiones">Decisiones</a></li><li><a href="#implementacion">Implementación</a></li><li><a href="#verificacion">Verificación</a></li><li><a href="#aprendizajes">Aprendizajes</a></li><li><a href="#estado">Estado actual</a></li><li><a href="#siguiente">Siguiente paso</a></li></ol></aside>
+      <article class="case-content">
+        <section id="problema"><h2>Problema</h2><p>Ejecutar contenedores tanto en la estación de trabajo como en el servidor privado duplicaba consumo, puertos, volúmenes y procedimientos. Al mismo tiempo, exponer el nodo doméstico para simplificar acceso habría creado una superficie innecesaria.</p></section>
+        <section id="responsabilidad"><h2>Responsabilidad</h2><p>Definí un único entorno de ejecución, configuré la administración remota, limité las interfaces publicadas y documenté la separación entre dependencias de desarrollo y almacenamiento autoritativo.</p></section>
+        <section id="restricciones"><h2>Restricciones</h2><ul><li>Sin puertos domésticos publicados en Internet.</li><li>Acceso administrativo únicamente mediante red privada y SSH.</li><li>Base de datos y caché sin puertos en el host.</li><li>Servicios HTTP de desarrollo vinculados a localhost.</li><li>La caída del nodo privado no habilita automáticamente un entorno alternativo.</li></ul></section>
+        <section id="arquitectura"><h2>Arquitectura y enfoque</h2><p>La estación envía contextos de compilación y comandos a Docker remoto sobre SSH. Los contenedores y volúmenes residen en el nodo privado. Las aplicaciones se comunican por redes internas; solo los puntos necesarios para desarrollo se vinculan a localhost.</p></section>
+        <section id="decisiones"><h2>Decisiones y compromisos</h2><ul class="decision-list"><li><strong>Un solo entorno de ejecución.</strong> Simplifica estado y operación, pero hace explícita la dependencia de conectividad.</li><li><strong>Acceso privado.</strong> Reduce exposición a costa de requerir autenticación en la red superpuesta.</li><li><strong>Persistencia en el nodo.</strong> Libera la estación de servicios permanentes y concentra los procedimientos de copia de seguridad.</li></ul></section>
+        <section id="implementacion"><h2>Implementación</h2><p>Se configuró un contexto remoto, se verificó con un contenedor efímero y se desplegó un stack de cuatro servicios. La API y el almacenamiento de desarrollo quedaron ligados a localhost; la base de datos y la caché no publican puertos.</p></section>
+        <section id="verificacion"><h2>Verificación</h2><div class="evidence"><div><strong>Contexto</strong>El endpoint remoto fue inspeccionado y probado.</div><div><strong>Servicios</strong>Cuatro contenedores alcanzaron estado saludable.</div><div><strong>Red</strong>Los enlaces de host quedaron limitados a localhost.</div><div><strong>Coexistencia</strong>El stack compartió nodo con otro servicio privado.</div></div></section>
+        <section id="aprendizajes"><h2>Incidentes y aprendizajes</h2><p>Un punto de preparación que devuelve éxito no prueba dependencias si sus comprobaciones aún son marcadores. La observabilidad debe declarar exactamente qué valida para no convertir una respuesta verde en falsa confianza.</p></section>
+        <section id="estado"><h2>Estado actual</h2><div class="callout"><div class="status-row"><span class="chip verified">Diseño verificado</span><span class="chip progress">Conjunto detenido</span></div><p>La arquitectura y el despliegue fueron comprobados. En la última lectura operativa, el conjunto de desarrollo estaba detenido; por eso no se presenta como servicio actualmente activo.</p></div></section>
+        <section id="siguiente"><h2>Siguiente paso</h2><p>Volver a desplegar mediante el procedimiento operativo y ampliar la comprobación de preparación para validar las dependencias reales antes de usarla como señal completa.</p></section>
+        <a class="next-case" href="ia-memoria.html"><span>Siguiente caso<strong>IA y memoria persistente</strong></span><span aria-hidden="true">→</span></a>
+      </article>
+    </div>
+  </main>
+  <footer class="site-footer"><div class="container footer-inner"><p>La topología pública usa nombres genéricos y omite todos los identificadores de red.</p><div class="footer-links"><a href="../index.html">Inicio</a><a href="https://github.com/sebasnano">GitHub</a><a href="https://www.linkedin.com/in/sebasti%C3%A1n-rodr%C3%ADguez-parra/" aria-label="Perfil de Sebastián Rodríguez en LinkedIn">LinkedIn</a></div></div></footer>
+</body>
+</html>
