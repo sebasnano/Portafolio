@@ -87,19 +87,19 @@
         <section id="procesamiento">
           <h2>Procesamiento y transformación</h2>
           <p>El procesamiento de datos es el núcleo de mi trabajo actual, principalmente en Python. La parte aplicada y verificada usa Polars y DuckDB, incluida una demostración columnar —escritura, consulta y relectura— respaldada por pruebas, con formatos columnares como Parquet y PyArrow. Pandas y NumPy forman parte de mi experiencia previa con datos.</p>
-          <p>La orquestación de pipelines es un trabajo en curso dentro del Personal Data Lake: los conectores, el catálogo y el flujo de ingesta aún no están implementados, y se mantienen explícitamente como estado futuro en lugar de presentarse como capacidad actual.</p>
+          <p>La orquestación de pipelines es un trabajo en curso dentro del Personal Data Lake. El catálogo PostgreSQL ya está implementado y verificado; los conectores, la ingesta automatizada, la reconciliación, la retención y la ejecución programada se mantienen como capacidades futuras.</p>
         </section>
 
         <section id="almacenamiento">
           <h2>Almacenamiento y modelado</h2>
-          <p>Modelo el almacenamiento según el dato y sus garantías. PostgreSQL es mi base relacional aplicada; MySQL y Oracle pertenecen a la experiencia previa. Las plataformas de datos usan almacenamiento de objetos con separación explícita entre el entorno de desarrollo y el almacenamiento autoritativo de producción.</p>
+          <p>Modelo el almacenamiento según el dato y sus garantías. PostgreSQL es mi base relacional aplicada: el catálogo registra ubicaciones verificadas, deduplica por SHA-256 y conserva auditoría de cada intento. MySQL y Oracle pertenecen a la experiencia previa.</p>
           <p>El criterio que aplico es decidir qué almacenar en cada sistema: datos transaccionales en una base relacional, conjuntos analíticos en formatos columnares y originales en almacenamiento de objetos con integridad verificada, cada uno con sus condiciones de acceso y recuperación.</p>
         </section>
 
         <section id="integridad">
           <h2>Integridad, trazabilidad y calidad</h2>
           <p>La confianza en los datos se demuestra con verificación, no con suposiciones. Uso hashes SHA-256 en manifiestos por conjunto, comprobaciones que descargan y comparan el contenido real, réplicas en tres ubicaciones independientes y una operación de solo adición que conserva el historial.</p>
-          <p>Los límites se mantienen honestos: el catálogo y los conectores de ingesta aún no están implementados, y estas prácticas se presentan como protección e integridad verificadas, no como alta disponibilidad ni como pipelines de producción.</p>
+          <p>El catálogo rechaza inconsistencias de tamaño o pertenencia, revierte la escritura conflictiva y conserva una auditoría separada del rechazo. Esta capacidad está verificada contra PostgreSQL real, pero no se presenta como alta disponibilidad, pipeline automatizado ni despliegue de producción.</p>
         </section>
 
         <section id="automatizacion">
