@@ -105,6 +105,9 @@ svg {
 }
 
 .brand {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
   color: var(--text);
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-size: 0.88rem;
@@ -136,7 +139,9 @@ svg {
 }
 
 .site-nav a {
-  display: block;
+  display: flex;
+  min-height: 2.75rem;
+  align-items: center;
   padding: 0.5rem 0.7rem;
   border-radius: 0.4rem;
   color: var(--muted);
@@ -152,7 +157,8 @@ svg {
 }
 
 main {
-  overflow: hidden;
+  overflow-x: clip;
+  overflow-y: visible;
 }
 
 .hero {
@@ -312,9 +318,18 @@ h3 {
   font-size: clamp(1.55rem, 4vw, 2.25rem);
 }
 
-.metric span:last-child {
+.metric > span:not(.data-label):not(.verification-date) {
   color: var(--muted);
   font-size: 0.9rem;
+}
+
+.verification-date {
+  display: block;
+  margin-top: 0.75rem;
+  color: var(--verified);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.75rem;
+  font-weight: 800;
 }
 
 .topology {
@@ -542,6 +557,8 @@ h3 {
 }
 
 .case-toc a {
+  display: block;
+  min-height: 1.5rem;
   color: inherit;
   text-decoration: none;
 }
@@ -553,6 +570,39 @@ h3 {
 .case-content section {
   scroll-margin-top: 6rem;
   margin-bottom: 3.5rem;
+}
+
+.executive-summary {
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  border: 1px solid rgb(101 212 220 / 45%);
+  border-radius: var(--radius);
+  background: linear-gradient(145deg, var(--ink-850), var(--ink-900));
+}
+
+.executive-summary dl {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+}
+
+.executive-summary div {
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--line);
+}
+
+.executive-summary dt {
+  color: var(--status);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.executive-summary dd {
+  margin: 0.25rem 0 0;
+  color: #c4d0d5;
 }
 
 .case-content p,
@@ -692,7 +742,8 @@ h3 {
   .case-grid,
   .principles,
   .case-meta,
-  .evidence {
+  .evidence,
+  .executive-summary dl {
     grid-template-columns: 1fr;
   }
 
@@ -772,6 +823,7 @@ h3 {
   .case-meta div,
   .decision-list li,
   .evidence div,
+  .executive-summary,
   .capability-card,
   .profile-case-card,
   .callout {

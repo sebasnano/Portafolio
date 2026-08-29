@@ -3,18 +3,37 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'none'; connect-src 'none'; font-src 'self'; form-action 'none'; frame-src 'none'; img-src 'self' data:; object-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="description" content="Caso de estudio sobre flujo de ingeniería asistida por IA y memoria persistente.">
+  <link rel="canonical" href="https://ingseb.cloud/casos/ia-memoria.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="IA y memoria persistente — Caso de estudio">
+  <meta property="og:description" content="Caso de estudio sobre flujo de ingeniería asistida por IA y memoria persistente.">
+  <meta property="og:url" content="https://ingseb.cloud/casos/ia-memoria.html">
+  <meta property="og:image" content="https://ingseb.cloud/assets/social-card.png">
+  <meta property="og:image:alt" content="Tarjeta del portafolio de software y datos con una composición técnica sobre fondo oscuro.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="IA y memoria persistente — Caso de estudio">
+  <meta name="twitter:description" content="Caso de estudio sobre flujo de ingeniería asistida por IA y memoria persistente.">
+  <meta name="twitter:image" content="https://ingseb.cloud/assets/social-card.png">
+  <meta name="twitter:image:alt" content="Tarjeta del portafolio de software y datos con una composición técnica sobre fondo oscuro.">
   <title>IA y memoria persistente — Caso de estudio</title>
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Article","headline":"Agentes con memoria, límites y evidencia de trabajo","description":"Caso de estudio sobre flujo de ingeniería asistida por IA y memoria persistente.","mainEntityOfPage":"https://ingseb.cloud/casos/ia-memoria.html","inLanguage":"es","author":{"@type":"Person","name":"Sebastián Rodríguez","url":"https://ingseb.cloud/perfil.html"}}
+  </script>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
   <header class="site-header"><div class="container header-inner"><a class="brand" href="../index.html">SR / Sistemas</a><nav class="site-nav" aria-label="Navegación principal"><ul><li><a href="../index.html">Inicio</a></li><li><a href="../perfil.html">Perfil</a></li><li><a href="../index.html#casos">Casos</a></li><li><a href="../index.html#contacto">Contacto</a></li></ul></nav></div></header>
   <main id="contenido">
-    <header class="case-hero"><div class="container"><p class="eyebrow">Caso · Flujo de ingeniería</p><div class="status-row"><span class="chip verified">Persistencia verificada</span><span class="chip progress">Flujo evolutivo</span></div><h1>Agentes con memoria, límites y evidencia de trabajo</h1><p class="lede">Integro IA en el ciclo de ingeniería como herramienta dirigida: lee contexto, ejecuta trabajo acotado, verifica resultados y conserva decisiones útiles entre sesiones.</p><dl class="case-meta"><div><dt>Responsabilidad</dt><dd>Diseño del flujo y gobernanza</dd></div><div><dt>Capacidad</dt><dd>Memoria persistente autohospedada</dd></div><div><dt>Protección</dt><dd>Copia de solo adición verificada</dd></div></dl></div></header>
+    <header class="case-hero"><div class="container"><p class="eyebrow">Caso · Flujo de ingeniería</p><div class="status-row"><span class="chip verified">Verificado</span><span class="chip progress">En progreso</span></div><h1>Agentes con memoria, límites y evidencia de trabajo</h1><p class="lede">Integro IA en el ciclo de ingeniería como herramienta dirigida: lee contexto, ejecuta trabajo acotado, verifica resultados y conserva decisiones útiles entre sesiones.</p><dl class="case-meta"><div><dt>Responsabilidad</dt><dd>Diseño del flujo y gobernanza</dd></div><div><dt>Capacidad</dt><dd>Memoria persistente autohospedada</dd></div><div><dt>Verificación</dt><dd>Verificado el 23/08/2026</dd></div></dl></div></header>
     <div class="container case-layout">
-      <aside class="case-toc" aria-label="Contenido del caso"><p class="data-label">En este caso</p><ol><li><a href="#problema">Problema</a></li><li><a href="#responsabilidad">Responsabilidad</a></li><li><a href="#restricciones">Restricciones</a></li><li><a href="#arquitectura">Arquitectura</a></li><li><a href="#decisiones">Decisiones</a></li><li><a href="#implementacion">Implementación</a></li><li><a href="#verificacion">Verificación</a></li><li><a href="#aprendizajes">Aprendizajes</a></li><li><a href="#estado">Estado actual</a></li><li><a href="#siguiente">Siguiente paso</a></li></ol></aside>
-      <article class="case-content">
+      <aside class="case-toc" aria-label="Contenido del caso"><p class="data-label">En este caso</p><ol><li><a href="#resumen-ejecutivo">Resumen ejecutivo</a></li><li><a href="#problema">Problema</a></li><li><a href="#responsabilidad">Responsabilidad</a></li><li><a href="#restricciones">Restricciones</a></li><li><a href="#arquitectura">Arquitectura</a></li><li><a href="#decisiones">Decisiones</a></li><li><a href="#implementacion">Implementación</a></li><li><a href="#verificacion">Verificación</a></li><li><a href="#aprendizajes">Aprendizajes</a></li><li><a href="#estado">Estado del flujo</a></li><li><a href="#siguiente">Siguiente paso</a></li></ol></aside>
+      <article class="case-content" aria-label="Caso IA y memoria persistente">
+        <section class="executive-summary" id="resumen-ejecutivo"><h2>Resumen ejecutivo</h2><dl><div><dt>Problema</dt><dd>Conservar contexto entre sesiones sin sustituir evidencia ni autoridad humana.</dd></div><div><dt>Contribución</dt><dd>Reglas de lectura, especialización, verificación y memoria persistente.</dd></div><div><dt>Resultado</dt><dd>Recuperación de observaciones entre sesiones y copia de solo adición verificadas.</dd></div><div><dt>Alcance</dt><dd>Persistencia y protección comprobadas; la gobernanza del flujo sigue evolucionando.</dd></div><div><dt>Verificación</dt><dd>Verificado el 23/08/2026 mediante aceptación entre sesiones y controles de integridad.</dd></div></dl></section>
         <section id="problema"><h2>Problema</h2><p>Los asistentes pierden contexto entre sesiones y pueden producir cambios rápidos sin comprender decisiones previas. Sin límites, la velocidad aparente aumenta mientras la coherencia y la trazabilidad disminuyen.</p></section>
         <section id="responsabilidad"><h2>Responsabilidad</h2><p>Diseñé reglas de lectura, especialización, verificación, documentación y memoria. La persona conserva autoridad sobre alcance y decisiones; el agente ejecuta dentro de fronteras explícitas.</p></section>
         <section id="restricciones"><h2>Restricciones</h2><ul><li>La memoria no sustituye la evidencia del repositorio.</li><li>Los secretos no se almacenan en documentación ni observaciones.</li><li>Las decisiones conflictivas requieren juicio explícito.</li><li>Los agentes no deben declarar éxito sin ejecutar verificaciones.</li><li>La infraestructura de memoria permanece en acceso privado.</li></ul></section>
@@ -23,7 +42,7 @@
         <section id="implementacion"><h2>Implementación</h2><p>La configuración incorpora instrucciones por proyecto, capacidades especializadas, acceso a documentación vigente y un servicio de memoria. Las decisiones, incidentes y patrones se registran de forma estructurada. La copia valida la base, escribe fuera del sitio sin sobrescribir conjuntos anteriores y comprueba el resultado.</p></section>
         <section id="verificacion"><h2>Verificación</h2><div class="evidence"><div><strong>Persistencia</strong>Observaciones de una sesión previa se recuperaron después y se usaron como contexto.</div><div><strong>Privacidad</strong>El servicio se mantiene fuera de exposición pública.</div><div><strong>Copia de seguridad</strong>Flujo de solo adición con controles de integridad.</div><div><strong>Operación</strong>Procedimiento manual disponible para validación.</div></div></section>
         <section id="aprendizajes"><h2>Incidentes y aprendizajes</h2><p>Una credencial fue rotada y se restableció mínimo privilegio. El aprendizaje se convirtió en política: separar roles, no imprimir valores sensibles y verificar nuevamente el flujo de copia completo después de una rotación.</p></section>
-        <section id="estado"><h2>Estado actual</h2><div class="callout"><div class="status-row"><span class="chip verified">Memoria verificada</span><span class="chip progress">Gobernanza en evolución</span></div><p>La persistencia y la copia de seguridad están comprobadas. El flujo completo de agentes continúa evolucionando; la memoria aporta continuidad, pero no concede autonomía irrestricta.</p></div></section>
+        <section id="estado"><h2>Estado del flujo</h2><div class="callout"><div class="status-row"><span class="chip verified">Verificado</span><span class="chip progress">En progreso</span></div><p>Verificado el 23/08/2026: la persistencia y la copia de seguridad están comprobadas. El flujo completo de agentes continúa evolucionando; la memoria aporta continuidad, pero no concede autonomía irrestricta.</p></div></section>
         <section id="siguiente"><h2>Siguiente paso</h2><p>Ampliar las pruebas de aceptación del flujo completo y revisar periódicamente memorias envejecidas contra la documentación y el estado del repositorio.</p></section>
         <a class="next-case" href="workstation-mac.html"><span>Siguiente caso<strong>Estación de trabajo declarativa</strong></span><span aria-hidden="true">→</span></a>
       </article>

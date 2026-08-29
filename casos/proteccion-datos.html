@@ -3,18 +3,37 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'none'; connect-src 'none'; font-src 'self'; form-action 'none'; frame-src 'none'; img-src 'self' data:; object-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="description" content="Caso de estudio sobre integridad, réplicas y aprendizaje operativo en protección de datos.">
+  <link rel="canonical" href="https://ingseb.cloud/casos/proteccion-datos.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Protección de datos e integridad — Caso de estudio">
+  <meta property="og:description" content="Caso de estudio sobre integridad, réplicas y aprendizaje operativo en protección de datos.">
+  <meta property="og:url" content="https://ingseb.cloud/casos/proteccion-datos.html">
+  <meta property="og:image" content="https://ingseb.cloud/assets/social-card.png">
+  <meta property="og:image:alt" content="Tarjeta del portafolio de software y datos con una composición técnica sobre fondo oscuro.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Protección de datos e integridad — Caso de estudio">
+  <meta name="twitter:description" content="Caso de estudio sobre integridad, réplicas y aprendizaje operativo en protección de datos.">
+  <meta name="twitter:image" content="https://ingseb.cloud/assets/social-card.png">
+  <meta name="twitter:image:alt" content="Tarjeta del portafolio de software y datos con una composición técnica sobre fondo oscuro.">
   <title>Protección de datos e integridad — Caso de estudio</title>
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Article","headline":"Protección de datos basada en integridad, no en suposiciones","description":"Caso de estudio sobre integridad, réplicas y aprendizaje operativo en protección de datos.","mainEntityOfPage":"https://ingseb.cloud/casos/proteccion-datos.html","inLanguage":"es","author":{"@type":"Person","name":"Sebastián Rodríguez","url":"https://ingseb.cloud/perfil.html"}}
+  </script>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
   <header class="site-header"><div class="container header-inner"><a class="brand" href="../index.html">SR / Sistemas</a><nav class="site-nav" aria-label="Navegación principal"><ul><li><a href="../index.html">Inicio</a></li><li><a href="../perfil.html">Perfil</a></li><li><a href="../index.html#casos">Casos</a></li><li><a href="../index.html#contacto">Contacto</a></li></ul></nav></div></header>
   <main id="contenido">
-    <header class="case-hero"><div class="container"><p class="eyebrow">Caso · Datos y recuperación</p><div class="status-row"><span class="chip progress">En progreso</span><span class="chip verified">Instantánea verificada</span></div><h1>Protección de datos basada en integridad, no en suposiciones</h1><p class="lede">Diseñé un flujo de copia y verificación que distingue transporte, réplica y autoridad, con hashes criptográficos y operación de solo adición.</p><dl class="case-meta"><div><dt>Responsabilidad</dt><dd>Estrategia de copia e integridad</dd></div><div><dt>Evidencia</dt><dd>6.570 archivos de datos</dd></div><div><dt>Distribución</dt><dd>Tres ubicaciones verificadas</dd></div></dl></div></header>
+    <header class="case-hero"><div class="container"><p class="eyebrow">Caso · Datos y recuperación</p><div class="status-row"><span class="chip progress">En progreso</span><span class="chip verified">Verificado</span></div><h1>Protección de datos basada en integridad, no en suposiciones</h1><p class="lede">Diseñé un flujo de copia y verificación que distingue transporte, réplica y autoridad, con hashes criptográficos y operación de solo adición.</p><dl class="case-meta"><div><dt>Responsabilidad</dt><dd>Estrategia de copia e integridad</dd></div><div><dt>Evidencia</dt><dd>6.570 archivos de datos</dd></div><div><dt>Verificación</dt><dd>Verificado el 23/08/2026</dd></div></dl></div></header>
     <div class="container case-layout">
-      <aside class="case-toc" aria-label="Contenido del caso"><p class="data-label">En este caso</p><ol><li><a href="#problema">Problema</a></li><li><a href="#responsabilidad">Responsabilidad</a></li><li><a href="#restricciones">Restricciones</a></li><li><a href="#arquitectura">Arquitectura</a></li><li><a href="#decisiones">Decisiones</a></li><li><a href="#implementacion">Implementación</a></li><li><a href="#verificacion">Verificación</a></li><li><a href="#aprendizajes">Aprendizajes</a></li><li><a href="#estado">Estado actual</a></li><li><a href="#siguiente">Siguiente paso</a></li></ol></aside>
-      <article class="case-content">
+      <aside class="case-toc" aria-label="Contenido del caso"><p class="data-label">En este caso</p><ol><li><a href="#resumen-ejecutivo">Resumen ejecutivo</a></li><li><a href="#problema">Problema</a></li><li><a href="#responsabilidad">Responsabilidad</a></li><li><a href="#restricciones">Restricciones</a></li><li><a href="#arquitectura">Arquitectura</a></li><li><a href="#decisiones">Decisiones</a></li><li><a href="#implementacion">Implementación</a></li><li><a href="#verificacion">Verificación</a></li><li><a href="#aprendizajes">Aprendizajes</a></li><li><a href="#estado">Estado del alcance</a></li><li><a href="#siguiente">Siguiente paso</a></li></ol></aside>
+      <article class="case-content" aria-label="Caso Protección de datos e integridad">
+        <section class="executive-summary" id="resumen-ejecutivo"><h2>Resumen ejecutivo</h2><dl><div><dt>Problema</dt><dd>Preservar originales y metadatos sin confundir transferencia con integridad.</dd></div><div><dt>Contribución</dt><dd>Estrategia de copia aditiva, manifiestos SHA-256 y privilegios limitados.</dd></div><div><dt>Resultado</dt><dd>6.570 archivos, aproximadamente 36 GiB y tres ubicaciones verificadas.</dd></div><div><dt>Alcance</dt><dd>Instantánea fotográfica; otros conjuntos continúan en progreso.</dd></div><div><dt>Verificación</dt><dd>Verificado el 23/08/2026 mediante recuento e integridad de contenido.</dd></div></dl></section>
         <section id="problema"><h2>Problema</h2><p>Una migración personal necesitaba preservar originales y metadatos sin confundir una transferencia exitosa con integridad demostrada. Además, debía evitar que una sincronización o credencial excesiva pudiera propagar borrados.</p></section>
         <section id="responsabilidad"><h2>Responsabilidad</h2><p>Definí las ubicaciones, el método de copia, la evidencia de integridad, la política de privilegios y los criterios que deben cumplirse antes de retirar una fuente.</p></section>
         <section id="restricciones"><h2>Restricciones</h2><ul><li>No usar sincronización destructiva para réplicas.</li><li>No tratar ETags como prueba criptográfica definitiva.</li><li>No borrar una fuente antes de dos ubicaciones verificadas.</li><li>No conceder permisos de eliminación a escritores cotidianos.</li><li>No publicar nombres de objetos, rutas, contenedores ni conjuntos de copias de seguridad.</li></ul></section>
@@ -23,7 +42,7 @@
         <section id="implementacion"><h2>Implementación</h2><p>Se generaron manifiestos, se realizó una comprobación con descarga y se mantuvieron réplicas en tres ubicaciones. Tras una incidencia de credenciales, se rotaron y se restauró el mínimo privilegio. El flujo de copia incorpora validación de integridad y conserva conjuntos anteriores.</p></section>
         <section id="verificacion"><h2>Verificación</h2><div class="evidence"><div><strong>Recuento</strong>6.570 archivos de datos coincidentes.</div><div><strong>Volumen</strong>Aproximadamente 36 GiB protegidos.</div><div><strong>Ubicaciones</strong>Tres copias verificadas para la instantánea.</div><div><strong>Copia de seguridad</strong>Escritura de solo adición con controles de integridad.</div></div></section>
         <section id="aprendizajes"><h2>Incidentes y aprendizajes</h2><p>Un sandbox de servicio bloqueó la escritura de un conjunto porque solo una ruta estaba autorizada. Las credenciales seguían siendo válidas y no hubo evidencia de pérdida. Se aplicó una corrección de mínimo privilegio que habilita únicamente el destino requerido; la réplica posterior terminó correctamente y el control de salud subsiguiente también fue satisfactorio.</p></section>
-        <section id="estado"><h2>Estado actual</h2><div class="callout"><div class="status-row"><span class="chip verified">Fotos verificadas</span><span class="chip progress">Migración en progreso</span></div><p>El snapshot fotográfico cuenta con tres ubicaciones verificadas. Las exportaciones no fotográficas ya están descargadas y extraídas, pero su inventario, integridad y promoción siguen en progreso.</p></div></section>
+        <section id="estado"><h2>Estado del alcance</h2><div class="callout"><div class="status-row"><span class="chip verified">Verificado</span><span class="chip progress">En progreso</span></div><p>Verificado el 23/08/2026: la instantánea fotográfica cuenta con tres ubicaciones verificadas. Las exportaciones no fotográficas ya están descargadas y extraídas, pero su inventario, integridad y promoción siguen en progreso.</p></div></section>
         <section id="siguiente"><h2>Siguiente paso</h2><p>Inventariar y validar los conjuntos no fotográficos, generar sus manifiestos y verificar sus réplicas antes de continuar con cualquier eliminación de origen.</p></section>
         <a class="next-case" href="workspace-local.html"><span>Siguiente caso<strong>WorkSpace Local</strong></span><span aria-hidden="true">→</span></a>
       </article>
