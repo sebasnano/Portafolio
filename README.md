@@ -10,7 +10,7 @@ Sitio estático en español centrado en soluciones de software y datos: backend,
    python3 -m http.server 8000
    ```
 
-2. Visitar `http://localhost:8000/`.
+2. Abrir la dirección local mostrada por el servidor.
 3. Recorrer la página principal, el perfil profesional y los casos bajo `casos/`.
 
 ## Estructura
@@ -19,6 +19,8 @@ Sitio estático en español centrado en soluciones de software y datos: backend,
 .
 ├── index.html
 ├── perfil.html
+├── robots.txt
+├── sitemap.xml
 ├── assets/
 │   └── styles.css
 └── casos/
@@ -36,7 +38,9 @@ El perfil público presenta una selección editorial del material profesional pr
 
 ## Reglas de contenido y privacidad
 
-- Publicar solo hechos comprobados y distinguir `Verificado`, `En progreso` y `Próximo`.
+- Publicar solo hechos comprobados. Los únicos estados visibles son `Verificado`, `En progreso` y `Próximo`; los matices editoriales pertenecen a la prosa.
+- Separar claims de implementación, instantánea, runtime y curaduría humana. Una implementación o instantánea no demuestra estado operativo actual.
+- Fechar la evidencia junto al claim: `Verificado el DD/MM/AAAA` para implementación e instantáneas, y `Lectura operativa del DD/MM/AAAA` para runtime.
 - No publicar direcciones de red, hostnames, usuarios, rutas internas ni identificadores operativos.
 - No publicar nombres de contenedores, remotos, objetos, conjuntos de copias de seguridad ni horarios exactos.
 - No incluir secretos, valores de entorno, credenciales, tokens, teléfonos o nombres de archivos personales.
@@ -46,4 +50,6 @@ El perfil público presenta una selección editorial del material profesional pr
 
 ## Compatibilidad de despliegue
 
-El sitio puede publicarse directamente desde la raíz de la rama configurada en GitHub Pages. No se introducen dependencias externas ni una canalización de compilación. El CSS incluye estados de foco, diseño adaptable, preferencia de movimiento reducido y estilos de impresión para los casos de estudio.
+El sitio puede publicarse directamente desde la raíz de la rama configurada en GitHub Pages. No se introducen dependencias externas ni una canalización de compilación. `robots.txt` referencia `sitemap.xml`, que enumera las ocho URL canónicas. El CSS incluye estados de foco, diseño adaptable, preferencia de movimiento reducido y estilos de impresión para los casos de estudio.
+
+Cada página declara una política de referencia y una CSP compatible con los estilos locales y los datos estructurados. GitHub Pages no permite configurar HSTS, `X-Content-Type-Options` ni `frame-ancestors` sin una capa edge; el sitio no agrega esa capa.

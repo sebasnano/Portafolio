@@ -3,8 +3,37 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'none'; connect-src 'none'; font-src 'self'; form-action 'none'; frame-src 'none'; img-src 'self' data:; object-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="description" content="Portafolio de Sebastián Rodríguez: soluciones de software y datos que convierten procesos e información en sistemas automatizados, escalables y confiables.">
+  <link rel="canonical" href="https://ingseb.cloud/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Sebastián Rodríguez — Software y datos">
+  <meta property="og:description" content="Portafolio de Sebastián Rodríguez: soluciones de software y datos que convierten procesos e información en sistemas automatizados, escalables y confiables.">
+  <meta property="og:url" content="https://ingseb.cloud/">
+  <meta property="og:image" content="https://ingseb.cloud/assets/social-card.png">
+  <meta property="og:image:alt" content="Tarjeta del portafolio de software y datos con una composición técnica sobre fondo oscuro.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sebastián Rodríguez — Software y datos">
+  <meta name="twitter:description" content="Portafolio de Sebastián Rodríguez: soluciones de software y datos que convierten procesos e información en sistemas automatizados, escalables y confiables.">
+  <meta name="twitter:image" content="https://ingseb.cloud/assets/social-card.png">
+  <meta name="twitter:image:alt" content="Tarjeta del portafolio de software y datos con una composición técnica sobre fondo oscuro.">
   <title>Sebastián Rodríguez — Software y datos</title>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Portafolio de Sebastián Rodríguez",
+      "url": "https://ingseb.cloud/",
+      "inLanguage": "es",
+      "author": {
+        "@type": "Person",
+        "name": "Sebastián Rodríguez",
+        "url": "https://ingseb.cloud/perfil.html"
+      }
+    }
+  </script>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
@@ -33,7 +62,8 @@
         <p class="lede">Soy Sebastián Rodríguez. Convierto procesos e información en sistemas automatizados, escalables y confiables, combinando desarrollo backend, ingeniería de datos e inteligencia artificial.</p>
         <div class="actions">
           <a class="button" href="perfil.html">Conocer mi perfil</a>
-          <a class="button secondary" href="casos/workspace-local.html">Ver caso principal</a>
+          <a class="button secondary" href="casos/data-lake.html">Ver caso principal</a>
+          <a class="button secondary" href="https://www.linkedin.com/in/sebasti%C3%A1n-rodr%C3%ADguez-parra/">Contactar por LinkedIn</a>
         </div>
       </div>
     </section>
@@ -42,32 +72,36 @@
       <div class="container">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">Evidencia actual</p>
+            <p class="eyebrow">Evidencia verificada</p>
             <h2 id="metricas">Métricas verificadas, no promesas</h2>
           </div>
           <p>Cada cifra corresponde a un punto de control documentado. El estado en progreso se mantiene visible.</p>
         </div>
         <div class="metrics">
-          <article class="metric">
+          <div class="metric">
             <span class="data-label">Integridad</span>
             <strong>6.570</strong>
             <span>archivos de datos verificados por hash</span>
-          </article>
-          <article class="metric">
+            <span class="verification-date">Verificado el 23/08/2026</span>
+          </div>
+          <div class="metric">
             <span class="data-label">Distribución</span>
             <strong>3 ubicaciones</strong>
             <span>copias independientes verificadas</span>
-          </article>
-          <article class="metric">
+            <span class="verification-date">Verificado el 23/08/2026</span>
+          </div>
+          <div class="metric">
             <span class="data-label">Volumen</span>
             <strong>≈36 GiB</strong>
             <span>snapshot fotográfico protegido</span>
-          </article>
-          <article class="metric">
+            <span class="verification-date">Verificado el 23/08/2026</span>
+          </div>
+          <div class="metric">
             <span class="data-label">Calidad</span>
             <strong>162 + 39 pruebas</strong>
             <span>host y PostgreSQL real, con análisis estático limpio</span>
-          </article>
+            <span class="verification-date">Verificado el 26/08/2026</span>
+          </div>
         </div>
       </div>
     </section>
@@ -138,36 +172,42 @@
             <div class="status-row"><span class="chip progress">En progreso</span><span class="chip verified">Verificado</span></div>
             <h3>Personal Data Lake</h3>
             <p>Base en Python con adaptador genérico de objetos y catálogo PostgreSQL verificado; la ingesta automatizada continúa como próximo corte.</p>
+            <p class="verification-date">Implementación verificada el 26/08/2026.</p>
             <a class="card-link" href="casos/data-lake.html">Leer caso →</a>
           </article>
           <article class="case-card">
             <div class="status-row"><span class="chip progress">En progreso</span></div>
             <h3>Protección de datos e integridad</h3>
             <p>Replicación por copia, manifiestos criptográficos, operación de solo adición y aprendizaje a partir de fallos sin pérdida de datos.</p>
+            <p class="verification-date">Instantánea verificada el 23/08/2026.</p>
             <a class="card-link" href="casos/proteccion-datos.html">Leer caso →</a>
           </article>
           <article class="case-card">
-            <div class="status-row"><span class="chip progress">En progreso</span><span class="chip verified">Base verificada</span></div>
+            <div class="status-row"><span class="chip progress">En progreso</span><span class="chip verified">Verificado</span></div>
             <h3>WorkSpace Local</h3>
             <p>Arquitectura híbrida para desarrollo, cómputo privado, almacenamiento externo, servicios públicos y documentación operativa.</p>
+            <p class="verification-date">Datos y herramientas verificados el 23/08/2026. Calidad verificada el 26/08/2026. Lectura operativa del 27/08/2026.</p>
             <a class="card-link" href="casos/workspace-local.html">Leer caso →</a>
           </article>
           <article class="case-card">
             <div class="status-row"><span class="chip verified">Verificado</span></div>
             <h3>Homelab privado y Docker remoto</h3>
             <p>Separación entre estación interactiva y nodo de ejecución, acceso privado y servicios vinculados a interfaces de mínima exposición.</p>
+            <p class="verification-date">Implementación verificada el 23/08/2026.</p>
             <a class="card-link" href="casos/homelab-docker.html">Leer caso →</a>
           </article>
           <article class="case-card">
-            <div class="status-row"><span class="chip verified">Verificado</span><span class="chip progress">Evolutivo</span></div>
+            <div class="status-row"><span class="chip verified">Verificado</span><span class="chip progress">En progreso</span></div>
             <h3>Ingeniería asistida por IA y memoria persistente</h3>
             <p>Agentes guiados por documentación, verificación y memoria entre sesiones, sin entregarles autoridad sobre decisiones humanas.</p>
+            <p class="verification-date">Persistencia y protección verificadas el 23/08/2026.</p>
             <a class="card-link" href="casos/ia-memoria.html">Leer caso →</a>
           </article>
           <article class="case-card">
             <div class="status-row"><span class="chip verified">Verificado</span></div>
             <h3>Estación declarativa y recuperación del shell</h3>
             <p>Un entorno macOS gestionado de forma declarativa, con login nativo y una ruta de recuperación que no depende del gestor de paquetes.</p>
+            <p class="verification-date">Instantánea verificada el 23/08/2026.</p>
             <a class="card-link" href="casos/workstation-mac.html">Leer caso →</a>
           </article>
         </div>

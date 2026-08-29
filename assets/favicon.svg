@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">SR / Sistemas</title>
+  <rect width="64" height="64" rx="12" fill="#080c0f"/>
+  <path d="M24 14h-8v36h8" fill="none" stroke="#f1a85b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M40 14h8v36h-8" fill="none" stroke="#65d4dc" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="m38 18-12 28" fill="none" stroke="#edf3f5" stroke-width="5" stroke-linecap="round"/>
+</svg>
