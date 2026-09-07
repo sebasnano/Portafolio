@@ -117,7 +117,7 @@
         <section id="procesamiento">
           <h2>Procesamiento y transformación</h2>
           <p>El procesamiento de datos es el núcleo de mi trabajo actual, principalmente en Python. La parte aplicada y verificada usa Polars y DuckDB, incluida una demostración columnar —escritura, consulta y relectura— respaldada por pruebas, con formatos columnares como Parquet y PyArrow. Pandas y NumPy forman parte de mi experiencia previa con datos.</p>
-          <p>La orquestación de pipelines es un trabajo en curso dentro del Personal Data Lake. El catálogo PostgreSQL ya está implementado y verificado; los conectores, la ingesta automatizada, la reconciliación, la retención y la ejecución programada se mantienen como capacidades futuras.</p>
+          <p>La orquestación de pipelines es un trabajo en curso dentro del Personal Data Lake. El catálogo PostgreSQL ya está implementado y verificado, incluido el backfill del inventario existente en almacenamiento de objetos; los conectores, la ingesta automatizada, la reconciliación continua, la retención y la ejecución programada se mantienen como capacidades futuras.</p>
         </section>
 
         <section id="almacenamiento">
@@ -129,7 +129,7 @@
         <section id="integridad">
           <h2>Integridad, trazabilidad y calidad</h2>
           <p>La confianza en los datos se demuestra con verificación, no con suposiciones. Uso hashes SHA-256 en manifiestos por conjunto, comprobaciones que descargan y comparan el contenido real, réplicas en tres ubicaciones independientes y una operación de solo adición que conserva el historial.</p>
-          <p>El catálogo rechaza inconsistencias de tamaño o pertenencia, revierte la escritura conflictiva y conserva una auditoría separada del rechazo. Esta capacidad está verificada contra PostgreSQL real, pero no se presenta como alta disponibilidad, pipeline automatizado ni despliegue de producción.</p>
+          <p>El catálogo rechaza inconsistencias de tamaño o pertenencia, revierte la escritura conflictiva y conserva una auditoría separada del rechazo. Con el backfill verificado, el inventario completo quedó conciliado por primera vez (9.420 objetos verificados por SHA-256 y 9.235 activos únicos tras la deduplicación, según la instantánea verificada el 06/09/2026). Esta capacidad está verificada contra PostgreSQL real, pero no se presenta como alta disponibilidad, pipeline automatizado ni despliegue de producción.</p>
         </section>
 
         <section id="automatizacion">
@@ -163,6 +163,7 @@
             <li><strong>Datos primero.</strong> El almacenamiento y el procesamiento se eligen según el dato y sus garantías, no a partir de una herramienta universal.</li>
             <li><strong>Evidencia antes que estado.</strong> Una respuesta exitosa solo demuestra aquello que la prueba comprueba de forma explícita.</li>
             <li><strong>Límites antes que acumulación.</strong> Software, datos e infraestructura se conectan mediante responsabilidades claras, no mediante una tecnología universal.</li>
+            <li><strong>Mínimo privilegio por defecto.</strong> Los servicios, credenciales y nodos reciben solo el acceso que necesitan; la exposición pública es una excepción explícita.</li>
             <li><strong>Recuperación como parte del diseño.</strong> Copias, mecanismos alternativos y documentación operativa se consideran desde el inicio.</li>
           </ul>
         </section>

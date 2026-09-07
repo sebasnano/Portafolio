@@ -347,12 +347,12 @@ h3 {
 }
 
 .case-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .case-card {
   display: flex;
-  min-height: 19rem;
+  min-height: 16rem;
   flex-direction: column;
   padding: clamp(1.3rem, 3vw, 1.8rem);
   border: 1px solid var(--line);
@@ -367,6 +367,24 @@ h3 {
 
 .case-card p {
   color: var(--muted);
+}
+
+.stack {
+  margin-top: 0.45rem;
+  color: var(--status);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.section-link {
+  margin: 1.75rem 0 0;
+  font-weight: 800;
+}
+
+.metrics-note {
+  margin-top: 1.25rem;
 }
 
 .case-card .card-link {
@@ -713,6 +731,10 @@ h3 {
 
   .metrics {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .case-grid {
+    grid-template-columns: 1fr;
   }
 
   .capability-grid,
