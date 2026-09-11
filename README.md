@@ -27,6 +27,9 @@ El validador usa solo la biblioteca estándar de Python y revisa las páginas HT
 
 ```text
 .
+├── CNAME
+├── LICENSE
+├── .gitignore
 ├── index.html
 ├── evidencia.html
 ├── perfil.html
@@ -37,7 +40,9 @@ El validador usa solo la biblioteca estándar de Python y revisa las páginas HT
 ├── .github/workflows/
 │   └── validate-site.yml
 ├── assets/
-│   └── styles.css
+│   ├── styles.css
+│   ├── favicon.svg
+│   └── social-card.png
 └── casos/
     ├── workspace-local.html
     ├── workstation-mac.html
@@ -51,6 +56,29 @@ No requiere framework, gestor de paquetes ni proceso de build. Todos los enlaces
 
 La metodología pública de evidencia explica los estados, categorías, fechas, controles y límites de las afirmaciones. El perfil presenta una selección editorial del material profesional privado: organiza capacidades aplicadas, experiencia complementaria y áreas en profundización sin copiar la fuente extensa de forma literal.
 
+## Mantenimiento
+
+Checklist para agregar o actualizar una página de caso:
+
+1. Partir de un caso existente como referencia y respetar las convenciones de la sección siguiente.
+2. Completar los metadatos obligatorios: `lang`, título, descripción, canonical, Open Graph, Twitter Card y JSON-LD.
+3. Agregar la URL canónica de la página a `sitemap.xml`.
+4. Revisar el contenido contra las reglas de privacidad de este README antes de publicar.
+5. Ejecutar `python3 scripts/validate_site.py` y corregir hasta que la validación pase.
+
+## Convenciones de las páginas de caso
+
+Las seis páginas de `casos/` comparten un andamiaje común que se mantiene por convención:
+
+- Bloque de metadatos completo: descripción, canonical, Open Graph, Twitter Card y JSON-LD.
+- Enlace de salto al contenido principal y navegación etiquetada.
+- Tabla de contenidos con anclas internas válidas.
+- Exactamente un `<main>` y un `<h1>` por página.
+- Pie compartido con enlaces al perfil y a los demás casos.
+- Enlaces internos relativos para funcionar en local y bajo GitHub Pages.
+
+Estrategia de mantenimiento del andamiaje: la duplicación se gobierna con estas convenciones y la validación automática, sin introducir plantillas ni proceso de build. Un sistema de plantillas se reevaluará solo si la cantidad de páginas o la divergencia entre casos hiciera el costo de mantenimiento mayor que el de agregar una etapa de compilación.
+
 ## Reglas de contenido y privacidad
 
 - Publicar solo hechos comprobados. Los únicos estados visibles son `Verificado`, `En progreso` y `Próximo`; los matices editoriales pertenecen a la prosa.
@@ -62,6 +90,11 @@ La metodología pública de evidencia explica los estados, categorías, fechas, 
 - Describir repositorios privados y datos personales únicamente de forma general.
 - Mantener diagramas con etiquetas genéricas y sanitizadas.
 - Curar las fuentes privadas antes de publicar y conservar fuera del repositorio sus detalles operativos o personales.
+
+## Política de reutilización
+
+- El código fuente de este repositorio (`scripts/` y `.github/workflows/`) se distribuye bajo la licencia MIT incluida en `LICENSE`.
+- El contenido escrito, las imágenes, la identidad visual y el material profesional del sitio quedan con todos los derechos reservados; su reutilización requiere autorización expresa.
 
 ## Compatibilidad de despliegue
 
