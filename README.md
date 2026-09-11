@@ -71,6 +71,9 @@ Checklist para agregar o actualizar una página de caso:
 Las seis páginas de `casos/` comparten un andamiaje común que se mantiene por convención:
 
 - Bloque de metadatos completo: descripción, canonical, Open Graph, Twitter Card y JSON-LD.
+- `datePublished` representa la primera publicación pública y sanitizada del caso en el portafolio; para los seis casos existentes es `2026-08-23`.
+- `dateModified` representa únicamente el cambio editorial o técnico material más reciente del contenido. Los ajustes de formato, los cambios solo de metadatos, las modificaciones del validador y los cambios de tarjeta social no adelantan esta fecha.
+- El `lastmod` de cada caso en `sitemap.xml` debe coincidir con su `dateModified`; para las demás páginas representa su cambio material más reciente bajo el mismo criterio.
 - Enlace de salto al contenido principal y navegación etiquetada.
 - Tabla de contenidos con anclas internas válidas.
 - Exactamente un `<main>` y un `<h1>` por página.

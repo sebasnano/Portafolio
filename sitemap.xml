@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://ingseb.cloud/</loc></url>
-  <url><loc>https://ingseb.cloud/perfil.html</loc></url>
-  <url><loc>https://ingseb.cloud/evidencia.html</loc></url>
-  <url><loc>https://ingseb.cloud/casos/data-lake.html</loc></url>
-  <url><loc>https://ingseb.cloud/casos/proteccion-datos.html</loc></url>
-  <url><loc>https://ingseb.cloud/casos/workspace-local.html</loc></url>
-  <url><loc>https://ingseb.cloud/casos/homelab-docker.html</loc></url>
-  <url><loc>https://ingseb.cloud/casos/ia-memoria.html</loc></url>
-  <url><loc>https://ingseb.cloud/casos/workstation-mac.html</loc></url>
+  <url><loc>https://ingseb.cloud/</loc><lastmod>2026-09-10</lastmod></url>
+  <url><loc>https://ingseb.cloud/perfil.html</loc><lastmod>2026-09-07</lastmod></url>
+  <url><loc>https://ingseb.cloud/evidencia.html</loc><lastmod>2026-09-10</lastmod></url>
+  <url><loc>https://ingseb.cloud/casos/data-lake.html</loc><lastmod>2026-09-07</lastmod></url>
+  <url><loc>https://ingseb.cloud/casos/proteccion-datos.html</loc><lastmod>2026-08-23</lastmod></url>
+  <url><loc>https://ingseb.cloud/casos/workspace-local.html</loc><lastmod>2026-09-07</lastmod></url>
+  <url><loc>https://ingseb.cloud/casos/homelab-docker.html</loc><lastmod>2026-08-23</lastmod></url>
+  <url><loc>https://ingseb.cloud/casos/ia-memoria.html</loc><lastmod>2026-08-23</lastmod></url>
+  <url><loc>https://ingseb.cloud/casos/workstation-mac.html</loc><lastmod>2026-08-23</lastmod></url>
 </urlset>
