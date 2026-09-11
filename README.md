@@ -42,7 +42,8 @@ El validador usa solo la biblioteca estándar de Python y revisa las páginas HT
 ├── assets/
 │   ├── styles.css
 │   ├── favicon.svg
-│   └── social-card.png
+│   ├── social-card.png
+│   └── social-*.png
 └── casos/
     ├── workspace-local.html
     ├── workstation-mac.html
