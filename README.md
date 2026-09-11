@@ -11,7 +11,7 @@ Sitio estático en español centrado en soluciones de software y datos: backend,
    ```
 
 2. Abrir la dirección local mostrada por el servidor.
-3. Recorrer la página principal, el perfil profesional y los casos bajo `casos/`.
+3. Recorrer la página principal, la metodología de evidencia, el perfil profesional y los casos bajo `casos/`.
 
 ## Validación local
 
@@ -28,6 +28,7 @@ El validador usa solo la biblioteca estándar de Python y revisa las páginas HT
 ```text
 .
 ├── index.html
+├── evidencia.html
 ├── perfil.html
 ├── robots.txt
 ├── sitemap.xml
@@ -48,7 +49,7 @@ El validador usa solo la biblioteca estándar de Python y revisa las páginas HT
 
 No requiere framework, gestor de paquetes ni proceso de build. Todos los enlaces internos son relativos para funcionar tanto en desarrollo local como bajo el subdirectorio de GitHub Pages.
 
-El perfil público presenta una selección editorial del material profesional privado: organiza capacidades aplicadas, experiencia complementaria y áreas en profundización sin copiar la fuente extensa de forma literal.
+La metodología pública de evidencia explica los estados, categorías, fechas, controles y límites de las afirmaciones. El perfil presenta una selección editorial del material profesional privado: organiza capacidades aplicadas, experiencia complementaria y áreas en profundización sin copiar la fuente extensa de forma literal.
 
 ## Reglas de contenido y privacidad
 
@@ -64,6 +65,6 @@ El perfil público presenta una selección editorial del material profesional pr
 
 ## Compatibilidad de despliegue
 
-El sitio puede publicarse directamente desde la raíz de la rama configurada en GitHub Pages. No se introducen dependencias externas ni una canalización de compilación; GitHub Actions solo valida los archivos y no despliega el sitio. `robots.txt` referencia `sitemap.xml`, que enumera las ocho URL canónicas. El CSS incluye estados de foco, diseño adaptable, preferencia de movimiento reducido y estilos de impresión para los casos de estudio.
+El sitio puede publicarse directamente desde la raíz de la rama configurada en GitHub Pages. No se introducen dependencias externas ni una canalización de compilación; GitHub Actions solo valida los archivos y no despliega el sitio. `robots.txt` referencia `sitemap.xml`, que enumera las nueve URL canónicas. El CSS incluye estados de foco, diseño adaptable, preferencia de movimiento reducido y estilos de impresión para los casos de estudio.
 
 Cada página declara una política de referencia y una CSP compatible con los estilos locales y los datos estructurados. GitHub Pages no permite configurar HSTS, `X-Content-Type-Options` ni `frame-ancestors` sin una capa edge; el sitio no agrega esa capa.
