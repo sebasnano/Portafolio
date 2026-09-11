@@ -13,6 +13,16 @@ Sitio estático en español centrado en soluciones de software y datos: backend,
 2. Abrir la dirección local mostrada por el servidor.
 3. Recorrer la página principal, el perfil profesional y los casos bajo `casos/`.
 
+## Validación local
+
+Desde la raíz del repositorio, ejecutar:
+
+```bash
+python3 scripts/validate_site.py
+```
+
+El validador usa solo la biblioteca estándar de Python y revisa las páginas HTML públicas, sus enlaces y recursos locales, metadatos, estructura accesible, sitemap, `robots.txt` y marcadores de contenido incompleto. Los límites públicos examinados son `*.html`, `casos/*.html`, `assets/*.css`, `assets/*.svg`, `robots.txt` y `sitemap.xml`; el código del validador y del workflow queda fuera del escaneo de contenido. La misma comprobación se ejecuta en GitHub Actions para cada `push` y `pull_request`.
+
 ## Estructura
 
 ```text
@@ -21,6 +31,10 @@ Sitio estático en español centrado en soluciones de software y datos: backend,
 ├── perfil.html
 ├── robots.txt
 ├── sitemap.xml
+├── scripts/
+│   └── validate_site.py
+├── .github/workflows/
+│   └── validate-site.yml
 ├── assets/
 │   └── styles.css
 └── casos/
@@ -50,6 +64,6 @@ El perfil público presenta una selección editorial del material profesional pr
 
 ## Compatibilidad de despliegue
 
-El sitio puede publicarse directamente desde la raíz de la rama configurada en GitHub Pages. No se introducen dependencias externas ni una canalización de compilación. `robots.txt` referencia `sitemap.xml`, que enumera las ocho URL canónicas. El CSS incluye estados de foco, diseño adaptable, preferencia de movimiento reducido y estilos de impresión para los casos de estudio.
+El sitio puede publicarse directamente desde la raíz de la rama configurada en GitHub Pages. No se introducen dependencias externas ni una canalización de compilación; GitHub Actions solo valida los archivos y no despliega el sitio. `robots.txt` referencia `sitemap.xml`, que enumera las ocho URL canónicas. El CSS incluye estados de foco, diseño adaptable, preferencia de movimiento reducido y estilos de impresión para los casos de estudio.
 
 Cada página declara una política de referencia y una CSP compatible con los estilos locales y los datos estructurados. GitHub Pages no permite configurar HSTS, `X-Content-Type-Options` ni `frame-ancestors` sin una capa edge; el sitio no agrega esa capa.
