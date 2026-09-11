@@ -21,7 +21,7 @@ Desde la raíz del repositorio, ejecutar:
 python3 scripts/validate_site.py
 ```
 
-El validador usa solo la biblioteca estándar de Python y revisa las páginas HTML públicas, sus enlaces y recursos locales, metadatos, estructura accesible, sitemap, `robots.txt` y marcadores de contenido incompleto. Los límites públicos examinados son `*.html`, `casos/*.html`, `assets/*.css`, `assets/*.svg`, `robots.txt` y `sitemap.xml`; el código del validador y del workflow queda fuera del escaneo de contenido. La misma comprobación se ejecuta en GitHub Actions para cada `push` y `pull_request`.
+El validador usa solo la biblioteca estándar de Python y revisa las páginas HTML públicas, sus enlaces y recursos locales, metadatos, estructura accesible, sitemap, `robots.txt` y marcadores de contenido incompleto. Los límites públicos examinados son `*.html`, `casos/*.html`, `assets/*.css`, `assets/*.svg`, `robots.txt` y `sitemap.xml`; el código del validador y del workflow queda fuera del escaneo de contenido. `404.html` se valida como página pública, pero se excluye intencionalmente del sitemap por su política `noindex,follow`. Sus referencias locales usan rutas absolutas desde la raíz para conservar la navegación cuando GitHub Pages la sirve ante una URL inexistente con cualquier nivel de profundidad. La misma comprobación se ejecuta en GitHub Actions para cada `push` y `pull_request`.
 
 ## Estructura
 
@@ -31,6 +31,7 @@ El validador usa solo la biblioteca estándar de Python y revisa las páginas HT
 ├── LICENSE
 ├── .gitignore
 ├── index.html
+├── 404.html
 ├── evidencia.html
 ├── perfil.html
 ├── robots.txt
@@ -53,7 +54,7 @@ El validador usa solo la biblioteca estándar de Python y revisa las páginas HT
     └── ia-memoria.html
 ```
 
-No requiere framework, gestor de paquetes ni proceso de build. Todos los enlaces internos son relativos para funcionar tanto en desarrollo local como bajo el subdirectorio de GitHub Pages.
+No requiere framework, gestor de paquetes ni proceso de build. Las páginas indexables conservan enlaces internos relativos para funcionar en desarrollo local y bajo GitHub Pages. La página `404.html` es la excepción deliberada: usa referencias locales desde `/` porque puede responder a rutas inexistentes profundas bajo el dominio personalizado.
 
 La metodología pública de evidencia explica los estados, categorías, fechas, controles y límites de las afirmaciones. El perfil presenta una selección editorial del material profesional privado: organiza capacidades aplicadas, experiencia complementaria y áreas en profundización sin copiar la fuente extensa de forma literal.
 
@@ -102,6 +103,6 @@ Estrategia de mantenimiento del andamiaje: la duplicación se gobierna con estas
 
 ## Compatibilidad de despliegue
 
-El sitio puede publicarse directamente desde la raíz de la rama configurada en GitHub Pages. No se introducen dependencias externas ni una canalización de compilación; GitHub Actions solo valida los archivos y no despliega el sitio. `robots.txt` referencia `sitemap.xml`, que enumera las nueve URL canónicas. El CSS incluye estados de foco, diseño adaptable, preferencia de movimiento reducido y estilos de impresión para los casos de estudio.
+El sitio puede publicarse directamente desde la raíz de la rama configurada en GitHub Pages. No se introducen dependencias externas ni una canalización de compilación; GitHub Actions solo valida los archivos y no despliega el sitio. `robots.txt` referencia `sitemap.xml`, que enumera las nueve URL canónicas indexables y excluye deliberadamente la página de error. El CSS incluye estados de foco, diseño adaptable, preferencia de movimiento reducido y estilos de impresión para los casos de estudio.
 
 Cada página declara una política de referencia y una CSP compatible con los estilos locales y los datos estructurados. GitHub Pages no permite configurar HSTS, `X-Content-Type-Options` ni `frame-ancestors` sin una capa edge; el sitio no agrega esa capa.

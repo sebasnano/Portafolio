@@ -24,6 +24,8 @@ MARKER_RE = re.compile(r"\b(?:TODO|FIXME|PLACEHOLDER)\b", re.IGNORECASE)
 DISPLAY_DATE_RE = re.compile(r"\b(?P<day>\d{2})/(?P<month>\d{2})/(?P<year>\d{4})\b")
 ISO_DATE_RE = re.compile(r"\d{4}-\d{2}-\d{2}")
 CASE_DIRECTORY = "casos"
+ERROR_PAGE = "404.html"
+SITEMAP_EXCLUDED_PAGES = frozenset({ERROR_PAGE})
 PNG_SIGNATURE = b"\x89PNG\r\n\x1a\n"
 PNG_DIMENSIONS = (1200, 630)
 PNG_ALLOWED_CHUNKS = {b"IHDR", b"PLTE", b"tRNS", b"IDAT", b"IEND"}
@@ -76,7 +78,7 @@ class PageParser(HTMLParser):
             if values.get(attribute):
                 self.refs.append((values[attribute], f"<{tag}> {attribute}", self.getpos()[0]))
         if tag == "meta":
-            for key in ("name", "property"):
+            for key in ("name", "property", "http-equiv"):
                 if values.get(key):
                     meta_key = (key, values[key].lower())
                     content = values.get("content", "").strip()
@@ -265,6 +267,38 @@ def require_meta(page: Path, parsed: PageParser, key: tuple[str, str], failures:
         )
     elif not occurrences[0]:
         failures.append(f"{display(page)}: missing or empty meta {key[0]}={key[1]!r}")
+
+
+def validate_404(page: Path, parsed: PageParser, failures: list[str]) -> None:
+    """Enforce recovery-page rules that keep deep GitHub Pages URLs usable."""
+    robots_key = ("name", "robots")
+    require_meta(page, parsed, robots_key, failures)
+    if (
+        len(parsed.meta_occurrences.get(robots_key, [])) == 1
+        and parsed.meta.get(robots_key, "").lower() != "noindex,follow"
+    ):
+        failures.append(f"{display(page)}: robots meta must be exactly 'noindex,follow'")
+    require_meta(page, parsed, ("name", "referrer"), failures)
+    require_meta(page, parsed, ("http-equiv", "content-security-policy"), failures)
+
+    social_card = f"{ORIGIN}/assets/social-card.png"
+    for key in (("property", "og:image"), ("name", "twitter:image")):
+        if parsed.meta.get(key) != social_card:
+            failures.append(f"{display(page)}: {key[1]} must use {social_card}")
+
+    canonical = canonical_for(page)
+    for reference, context, line in parsed.refs:
+        target = local_target(page, reference)
+        if target is None or reference == canonical:
+            continue
+        reference_parts = urlparse(reference)
+        if not reference_parts.path:
+            continue
+        if not reference.startswith("/"):
+            failures.append(
+                f"{display(page)}:{line}: 404 local reference {reference!r} ({context}) "
+                "must be root-absolute"
+            )
 
 
 def validate_page(page: Path, parsed_pages: dict[Path, PageParser], failures: list[str]) -> None:
@@ -507,11 +541,18 @@ def validate_sitemap(
             failures.append(f"sitemap.xml: {location or '<unknown URL>'} has invalid lastmod {lastmod!r}")
             continue
         sitemap_dates[location] = lastmod
-    expected = {canonical_for(page) for page in pages}
+    expected = {
+        canonical_for(page)
+        for page in pages
+        if display(page) not in SITEMAP_EXCLUDED_PAGES
+    }
     actual = set(locations)
+    error_url = f"{ORIGIN}/{ERROR_PAGE}"
+    if error_url in actual:
+        failures.append(f"sitemap.xml: {ERROR_PAGE} must be excluded from the sitemap")
     for url in sorted(expected - actual):
         failures.append(f"sitemap.xml: missing public page {url}")
-    for url in sorted(actual - expected):
+    for url in sorted(actual - expected - {error_url}):
         failures.append(f"sitemap.xml: URL does not map to a public HTML page: {url}")
     if len(locations) != len(actual):
         failures.append("sitemap.xml: duplicate <loc> entries found")
@@ -561,6 +602,9 @@ def validate_robots(failures: list[str]) -> None:
 
 def main() -> int:
     failures: list[str] = []
+    error_page = ROOT / ERROR_PAGE
+    if not error_page.is_file():
+        failures.append(f"{ERROR_PAGE}: required GitHub Pages recovery page is missing")
     pages = public_html_files()
     parsed_pages: dict[Path, PageParser] = {}
     for page in pages:
@@ -576,6 +620,8 @@ def main() -> int:
     for page in pages:
         resolved = page.resolve()
         validate_page(resolved, parsed_pages, failures)
+        if display(page) == ERROR_PAGE:
+            validate_404(resolved, parsed_pages[resolved], failures)
         if page.parent.name == CASE_DIRECTORY:
             case_pages.append(page)
             modified = validate_case_dates(resolved, parsed_pages[resolved], failures)

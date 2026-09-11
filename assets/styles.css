@@ -467,6 +467,36 @@ h3 {
   font-weight: 800;
 }
 
+/* Error recovery */
+.error-page {
+  display: grid;
+  min-height: calc(100vh - 13rem);
+  place-items: center;
+  padding-block: clamp(4rem, 10vw, 7rem);
+}
+
+.error-copy {
+  max-width: 52rem;
+}
+
+.error-code {
+  margin-block: 0 0.5rem;
+  color: var(--signal);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: clamp(3.5rem, 12vw, 7rem);
+  font-weight: 850;
+  letter-spacing: -0.08em;
+  line-height: 0.9;
+}
+
+.error-page h1 {
+  max-width: 18ch;
+}
+
+.error-routes {
+  margin-top: 2rem;
+}
+
 /* Professional profile */
 .case-hero.profile-hero h1 {
   max-width: 22ch;
